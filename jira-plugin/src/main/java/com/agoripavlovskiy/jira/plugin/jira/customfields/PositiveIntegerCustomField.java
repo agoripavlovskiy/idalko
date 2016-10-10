@@ -2,8 +2,6 @@ package com.agoripavlovskiy.jira.plugin.jira.customfields;
 
 import com.atlassian.jira.issue.customfields.impl.AbstractSingleFieldType;
 import com.atlassian.jira.issue.customfields.persistence.PersistenceFieldType;
-import com.atlassian.plugin.spring.scanner.annotation.component.ClasspathComponent;
-import com.atlassian.plugin.spring.scanner.annotation.component.Scanned;
 import com.atlassian.plugin.spring.scanner.annotation.export.ExportAsService;
 import com.atlassian.plugin.spring.scanner.annotation.imports.ComponentImport;
 import com.atlassian.jira.issue.customfields.manager.GenericConfigManager;
@@ -57,7 +55,7 @@ public class PositiveIntegerCustomField extends AbstractSingleFieldType<Integer>
         {
             final Integer integer = new Integer(string);
             // Check that we have a positive value
-            if (integer < 0)
+            if (integer <= 0)
             {
                 throw new FieldValidationException(
                         "Value should be a positive integer.");

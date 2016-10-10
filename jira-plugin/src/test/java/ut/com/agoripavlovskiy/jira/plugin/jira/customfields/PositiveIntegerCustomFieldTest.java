@@ -39,6 +39,11 @@ public class PositiveIntegerCustomFieldTest {
     }
 
     @Test(expected=FieldValidationException.class)
+    public void test_get_singular_with_zero() {
+        testClass.getSingularObjectFromString("0");
+    }
+
+    @Test(expected=FieldValidationException.class)
     public void test_get_singular_with_string() {
         testClass.getSingularObjectFromString("string value");
     }
